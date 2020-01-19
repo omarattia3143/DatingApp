@@ -2,3 +2,7 @@
   background-color: darkred;
   border-color: black;
 }
+
+.dropdown-toggle,.dropdown-item{
+  cursor: pointer;
+}
