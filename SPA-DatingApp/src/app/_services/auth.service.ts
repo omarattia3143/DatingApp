@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {resolveFileWithPostfixes} from '@angular/compiler-cli/ngcc/src/utils';
-import {RegisterModel} from '../register/RegisterModel';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = 'https://localhost:5001/api/auth/';
+  baseUrl = environment.apiUrl + 'auth/';
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   login(model: any) {
     return this.http.post(this.baseUrl + 'login', model)
@@ -28,7 +28,7 @@ export class AuthService {
       );
   }
 
-  register(model: RegisterModel) {
+  register(model: any) {
     return this.http.post(this.baseUrl + 'register', model);
   }
 

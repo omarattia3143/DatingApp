@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ValueModel} from '../Models/ValueModel';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,6 @@ import {ValueModel} from '../Models/ValueModel';
 })
 export class HomeComponent implements OnInit {
   registerMode = false;
-  values: ValueModel[];
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
